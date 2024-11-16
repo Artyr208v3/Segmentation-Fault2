@@ -1,9 +1,5 @@
 <script>
-    export let userData = {
-        name: '',
-        age: '',
-        achievements: []
-    };
+    export let userData;
 </script>
 
 <h2>Личный кабинет</h2>

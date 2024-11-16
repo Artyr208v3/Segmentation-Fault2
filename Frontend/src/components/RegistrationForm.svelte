@@ -1,29 +1,43 @@
 <script>
-    let username = '';
-    let email = '';
-    let password = '';
-  
-    function handleSubmit() {
-      console.log({ username, email, password });
-    }
-  </script>
-  
-  <form on:submit|preventDefault={handleSubmit}>
-    <h2>Регистрация</h2>
-    <label>
-      <input type="text" bind:value={username} placeholder="Имя пользователя" required />
-    </label>
-    <label>
-      <input type="email" bind:value={email} placeholder="Email" required />
-    </label>
-    <label>
-      <input type="password" bind:value={password} placeholder="Пароль" required />
-    </label>
-    <label>
-      <button type="submit">Зарегистрироваться</button>
-    </label>
-  </form>
-  
-  <style>
-    
-  </style>
+  import { createEventDispatcher } from 'svelte';
+
+  const dispatch = createEventDispatcher();
+  let name = '';
+  let email = '';
+  let age = '';
+  let errorMessage = '';
+
+  function handleSubmit() {
+      if (!name || !email || !age) {
+          errorMessage = 'Пожалуйста, заполните все поля.';
+          return;
+      }
+      if (age < 18) {
+          errorMessage = 'Возраст должен быть 18 лет или старше.';
+          return;
+      }
+      errorMessage = '';
+      dispatch('updateUser Data', { name, email, age });
+      // Здесь можно добавить логику для отправки данных на сервер
+  }
+</script>
+
+<form on:submit|preventDefault={handleSubmit}>
+  <h2>Регистрация</h2>
+  {#if errorMessage}
+      <p style="color: red;">{errorMessage}</p>
+  {/if}
+  <label>
+      Имя:
+      <input type="text" bind:value={name} required />
+  </label>
+  <label>
+      Email:
+      <input type="email" bind:value={email} required />
+  </label>
+  <label>
+      Возраст:
+      <input type="number" bind:value={age} required />
+  </label>
+  <button type="submit">Зарегистрироваться</button>
+</form>
