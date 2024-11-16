@@ -1,9 +1,9 @@
 <script>
-    export let user = {
-        name: '',
-        email: '',
-        bio: ''
-    };
+    import { createEventDispatcher } from 'svelte';
+
+    const dispatch = createEventDispatcher();
+    export let userData;
+    export let updateUser Data;
 
     let isEditing = false;
 
@@ -12,6 +12,8 @@
     }
 
     function saveProfile() {
+        // 
+        updateUser Data({ name: userData.name, email: userData.email, bio: userData.bio });
         toggleEdit();
     }
 </script>
@@ -21,25 +23,40 @@
 {#if isEditing}
     <div>
         <label>
-            Имя:
-            <input type="text" bind:value={user.name} />
+            ФИО:
+            <input type="text" bind:value={userData.name} />
+        </label>
+        <label>
+            Дата рождения:
+            <input type="email" bind:value={userData.email} />
+        </label>
+        <label>
+            Место обучения:
+            <input bind:value={userData.bio}></input>
+        </label>
+        <label>
+            Номер телефона:
+            <input type="text" bind:value={userData.name} />
         </label>
         <label>
             Email:
-            <input type="email" bind:value={user.email} />
+            <input type="text" bind:value={userData.name} />
         </label>
         <label>
-            О себе:
-            <textarea bind:value={user.bio}></textarea>
+            Направление:
+            <input type="text" bind:value={userData.name} />
         </label>
         <button on:click={saveProfile}>Сохранить</button>
         <button on:click={toggleEdit}>Отмена</button>
     </div>
 {:else}
     <div>
-        <p><strong>Имя:</strong> {user.name}</p>
-        <p><strong>Email:</strong> {user.email}</p>
-        <p><strong>О себе:</strong> {user.bio}</p>
+        <p><strong>ФИО:</strong> {userData.name}</p>
+        <p><strong>Дата рождения:</strong> {userData.email}</p>
+        <p><strong>Место обучения:</strong> {userData.bio}</p>
+        <p><strong>Номер телефона:</strong> {userData.name}</p>
+        <p><strong>Email:</strong> {userData.email}</p>
+        <p><strong>Направление:</strong> {userData.bio}</p>
         <button on:click={toggleEdit}>Редактировать</button>
     </div>
 {/if}
