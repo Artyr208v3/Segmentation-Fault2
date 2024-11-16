@@ -11,3 +11,10 @@
   <p><strong>Email:</strong> {userData.email}</p>
   <p><strong>Направление:</strong> {userData.naprav}</p>
 </div>
+
+<h3>Достижения</h3>
+<ul>
+    {#each userData.achievements as achievement}
+        <li>{achievement}</li>
+    {/each}
+</ul>

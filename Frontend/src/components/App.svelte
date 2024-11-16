@@ -1,7 +1,7 @@
 <script>
     import Header from './components/Header.svelte';
     import RegistrationForm from './components/RegistrationForm.svelte';
-    import Dashboard from './components/Dashboard.svelte';
+    import User_Profile from './components/User_Profile.svelte';
     import Events from './components/Events.svelte';
     import SupportMeasures from './components/SupportMeasures.svelte';
     import DevelopmentPath from './components/DevelopmentPath.svelte';
@@ -11,8 +11,12 @@
     let userData = {
         name: '',
         email: '',
-        age: '',
-        bio: '',
+        name = '',
+        data = '',
+        teach = '',
+        number = '',
+        email = '',
+        naprav = '',
         achievements: []
     };
 
@@ -20,7 +24,7 @@
         currentView = view;
     }
 
-    function updateUser Data(data) {
+    function updateUser_Data(data) {
         userData = { ...userData, ...data };
     }
 </script>
@@ -29,9 +33,9 @@
 
 <div class="container">
     {#if currentView === 'registration'}
-        <RegistrationForm {updateUser Data} />
+        <RegistrationForm {updateUser_Data} />
     {:else if currentView === 'dashboard'}
-        <Dashboard {userData} />
+        <User_Profile {userData} />
     {:else if currentView === 'events'}
         <Events />
     {:else if currentView === 'support'}
@@ -39,6 +43,6 @@
     {:else if currentView === 'development'}
         <DevelopmentPath />
     {:else if currentView === 'profile'}
-        <Profile {userData} {updateUser Data} />
+        <Profile {userData} {updateUser_Data} />
     {/if}
 </div>
