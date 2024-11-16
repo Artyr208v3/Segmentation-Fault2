@@ -24,27 +24,27 @@
     <div>
         <label>
             ФИО:
-            <input type="text" bind:value={userData.name} />
+            <input bind:value={userData.name} />
         </label>
         <label>
             Дата рождения:
-            <input type="email" bind:value={userData.email} />
+            <input bind:value={userData.name} />
         </label>
         <label>
             Место обучения:
-            <input bind:value={userData.bio}></input>
+            <input bind:value={userData.name} />
         </label>
         <label>
             Номер телефона:
-            <input type="text" bind:value={userData.name} />
+            <input bind:value={userData.name} />
         </label>
         <label>
             Email:
-            <input type="text" bind:value={userData.name} />
+            <input bind:value={userData.name} />
         </label>
         <label>
             Направление:
-            <input type="text" bind:value={userData.name} />
+            <input bind:value={userData.name} />
         </label>
         <button on:click={saveProfile}>Сохранить</button>
         <button on:click={toggleEdit}>Отмена</button>
