@@ -1,12 +1,13 @@
 <script>
-  import Profile from './Profile.svelte';
-
-  let userData = {
-      name: 'Иван Иванов',
-      email: 'ivan@example.com',
-      bio: 'Разработчик программного обеспечения'
-  };
+  export let userData;
 </script>
 
-<h1>Добро пожаловать, {userData.name}!</h1>
-<Profile {userData} />
+<h2>Профиль пользователя</h2>
+<div>
+  <p><strong>ФИО:</strong> {userData.name}</p>
+  <p><strong>Дата рождения:</strong> {userData.date}</p>
+  <p><strong>Место обучения:</strong> {userData.teach}</p>
+  <p><strong>Номер телефона:</strong> {userData.number}</p>
+  <p><strong>Email:</strong> {userData.email}</p>
+  <p><strong>Направление:</strong> {userData.naprav}</p>
+</div>
