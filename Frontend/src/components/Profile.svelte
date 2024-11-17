@@ -8,6 +8,15 @@
         name: "", 
         data: "",
         
+    let isEditing = false;
+
+    function toggleEdit() {
+        isEditing = !isEditing;
+    }
+
+    function saveProfile() {
+        
+        toggleEdit();
     }
 </script>
 
@@ -21,23 +30,23 @@
         </label>
         <label>
             Дата рождения:
-            <input bind:value={userData.name} />
+            <input type="date" bind:value={userData.date} />
         </label>
         <label>
             Место обучения:
-            <input bind:value={userData.name} />
+            <input bind:value={userData.teach} />
         </label>
         <label>
             Номер телефона:
-            <input bind:value={userData.name} />
+            <input type="tel" bind:value={userData.number} />
         </label>
         <label>
             Email:
-            <input bind:value={userData.name} />
+            <input type="email" bind:value={userData.email} />
         </label>
         <label>
             Направление:
-            <input bind:value={userData.name} />
+            <input bind:value={userData.naprav} />
         </label>
         <button on:click={saveProfile}>Сохранить</button>
         <button on:click={toggleEdit}>Отмена</button>
@@ -45,11 +54,11 @@
 {:else}
     <div>
         <p><strong>ФИО:</strong> {userData.name}</p>
-        <p><strong>Дата рождения:</strong> {userData.email}</p>
-        <p><strong>Место обучения:</strong> {userData.bio}</p>
-        <p><strong>Номер телефона:</strong> {userData.name}</p>
+        <p><strong>Дата рождения:</strong> {userData.date}</p>
+        <p><strong>Место обучения:</strong> {userData.teach}</p>
+        <p><strong>Номер телефона:</strong> {userData.number}</p>
         <p><strong>Email:</strong> {userData.email}</p>
-        <p><strong>Направление:</strong> {userData.bio}</p>
+        <p><strong>Направление:</strong> {userData.naprav}</p>
         <button on:click={toggleEdit}>Редактировать</button>
     </div>
 {/if}

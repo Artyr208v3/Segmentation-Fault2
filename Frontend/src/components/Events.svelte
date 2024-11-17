@@ -6,7 +6,7 @@
     ];
 </script>
 
-<h2>Актуальные мероприятияz</h2>
+<h2>Актуальные мероприятия</h2>
 <ul>
     {#each events as event}
         <li>{event.title} - {event.date}</li>
