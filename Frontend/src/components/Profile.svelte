@@ -3,18 +3,11 @@
 
     const dispatch = createEventDispatcher();
     export let userData;
-    export let updateUser Data;
 
-    let isEditing = false;
-
-    function toggleEdit() {
-        isEditing = !isEditing;
-    }
-
-    function saveProfile() {
-        // 
-        updateUser Data({ name: userData.name, email: userData.email, bio: userData.bio });
-        toggleEdit();
+    userData = {
+        name: "", 
+        data: "",
+        
     }
 </script>
 

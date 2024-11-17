@@ -25,7 +25,7 @@
 <form on:submit|preventDefault={handleSubmit}>
   <h2>Регистрация</h2>
   {#if errorMessage}
-      <p style="color: red;">{errorMessage}</p>
+      <p class="p-100">{errorMessage}</p>
   {/if}
   <label>
       Имя:
@@ -41,3 +41,6 @@
   </label>
   <button type="submit">Зарегистрироваться</button>
 </form>
+
+<style lang="postcss">
+</style>
